@@ -7,6 +7,7 @@ import { PageTile } from "../components/PageTile";
 import { PageTileContainer } from "../fragments/PageTileContainer";
 import { Text } from "../components/Text";
 import { Navigation } from "../fragments/Navigation";
+import { useIsLoaded } from "../hooks/useIsLoaded";
 import { useOnResize } from "../hooks/useOnResize";
 import { useOnScroll } from "../hooks/useOnScroll";
 import { opacity } from "../styles/animations";
@@ -15,10 +16,9 @@ import Introduction from "../fragments/tiles/Introduction";
 import Projects from "../fragments/tiles/Projects";
 
 const Home: NextPage = () => {
-  const [scrollPosition] = useOnScroll();
-  const [resizeDimension] = useOnResize();
+  const [isLoaded] = useIsLoaded()
 
-  return (
+  return isLoaded ? (
     <>
       <Navigation />
       <PageTileContainer>
