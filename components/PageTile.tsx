@@ -1,5 +1,5 @@
 import { CSS } from "@stitches/react";
-import { usePageTileOpacity } from "../hooks/usePageTileOpacity";
+import { usePageTileFocus } from "../hooks/usePageTileFocus";
 import { styled } from "../styles/theme";
 
 const StyledPageTile = styled("div", {
@@ -17,9 +17,9 @@ export interface PageTileProps {
 }
 
 export const PageTile = ({ pageIndex, children, ref, css }: PageTileProps) => {
-  const [opacity] = usePageTileOpacity(pageIndex);
+  const [focus] = usePageTileFocus(pageIndex);
   return (
-    <StyledPageTile css={{ opacity, ...css }} ref={ref}>
+    <StyledPageTile css={{ opacity: focus, ...css }} ref={ref}>
       {children}
     </StyledPageTile>
   );

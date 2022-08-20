@@ -4,7 +4,6 @@ import { useOnResize } from "../../hooks/useOnResize";
 import { useOnScroll } from "../../hooks/useOnScroll";
 import { opacity } from "../../styles/animations";
 import { Text } from "../../components/Text";
-import { usePageTileOpacity } from "../../hooks/usePageTileOpacity";
 
 const Projects = () => {
   return (
