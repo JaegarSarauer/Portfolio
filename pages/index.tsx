@@ -6,41 +6,21 @@ import { Container } from "../components/Container";
 import { PageTile } from "../components/PageTile";
 import { Text } from "../components/Text";
 import { Navigation } from "../fragments/Navigation";
+import { useOnResize } from "../hooks/useOnResize";
+import { useOnScroll } from "../hooks/useOnScroll";
 import { opacity } from "../styles/animations";
 import styles from "../styles/Home.module.css";
+import Introduction from "./tiles/introduction";
 
 const Home: NextPage = () => {
+  const [scrollPosition] = useOnScroll();
+  const [resizeDimension] = useOnResize();
+
   return (
     <>
       <Navigation />
-      <PageTile>
-        <Container
-          center
-          css={{
-            width: "200px",
-          }}
-        >
-          <Text
-            textCenter
-            css={{
-              opacity: 0,
-              fontSize: "48px",
-              animation: `1.6s forwards ${opacity(0, 1)} 0.1s`,
-            }}
-          >
-            Jaegar Sarauer
-          </Text>
-          <Text
-            textCenter
-            css={{
-              opacity: 0,
-              animation: `1.6s forwards ${opacity(0, 1)} 1.8s`,
-            }}
-          >
-            A web portfolio
-          </Text>
-        </Container>
-      </PageTile>
+      <Introduction />
+      <PageTile />
       <PageTile />
     </>
   );
