@@ -4,13 +4,15 @@ import Image from "next/image";
 import { Button } from "../components/Button";
 import { Container } from "../components/Container";
 import { PageTile } from "../components/PageTile";
+import { PageTileContainer } from "../fragments/PageTileContainer";
 import { Text } from "../components/Text";
 import { Navigation } from "../fragments/Navigation";
 import { useOnResize } from "../hooks/useOnResize";
 import { useOnScroll } from "../hooks/useOnScroll";
 import { opacity } from "../styles/animations";
-import styles from "../styles/Home.module.css";
-import Introduction from "./tiles/introduction";
+import AboutMe from "../fragments/tiles/AboutMe";
+import Introduction from "../fragments/tiles/Introduction";
+import Projects from "../fragments/tiles/Projects";
 
 const Home: NextPage = () => {
   const [scrollPosition] = useOnScroll();
@@ -19,11 +21,13 @@ const Home: NextPage = () => {
   return (
     <>
       <Navigation />
-      <Introduction />
-      <PageTile />
-      <PageTile />
+      <PageTileContainer>
+        <Introduction />
+        <AboutMe />
+        <Projects/>
+      </PageTileContainer>
     </>
-  );
+  ) : null;
 };
 
 export default Home;
