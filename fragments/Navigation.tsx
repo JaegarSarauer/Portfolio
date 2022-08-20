@@ -44,12 +44,14 @@ export const Navigation = () => {
         display: 'flex',
         flexDirection: 'column',
         position: 'fixed',
+        textAlign: 'right',
         top: 80 - 60 * calculateNavigationOffset(400, scrollPosition),
-        left: 80 - 60 * calculateNavigationOffset(400, scrollPosition),
+        right: 80 - 60 * calculateNavigationOffset(400, scrollPosition),
         borderRight: 'solid 2px black',
         paddingRight: '8px',
         opacity: 0,
         animation: `1.6s forwards ${opacity(0, 1)} 1.8s`,
+        zIndex: 1000
       }}>
         <GrowLink href="/">Home</GrowLink>
         <GrowLink href="/about">About Me</GrowLink>
