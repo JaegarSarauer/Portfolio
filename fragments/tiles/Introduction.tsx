@@ -2,7 +2,10 @@ import { Container } from "../../components/Container";
 import { PageTile } from "../../components/PageTile";
 import { useOnResize } from "../../hooks/useOnResize";
 import { useOnScroll } from "../../hooks/useOnScroll";
-import { linearFrames, opacity as opacityFrames } from "../../styles/animations";
+import {
+  linearFrames,
+  opacity as opacityFrames,
+} from "../../styles/animations";
 import { Text } from "../../components/Text";
 
 const Introduction = () => {

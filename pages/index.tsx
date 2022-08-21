@@ -13,18 +13,23 @@ import { useOnScroll } from "../hooks/useOnScroll";
 import { opacity } from "../styles/animations";
 import AboutMe from "../fragments/tiles/AboutMe";
 import Introduction from "../fragments/tiles/Introduction";
-import Projects from "../fragments/tiles/Projects";
+import Project from "../fragments/tiles/Project";
+import { Projects } from "../content/projects";
 
 const Home: NextPage = () => {
-  const [isLoaded] = useIsLoaded()
+  const [isLoaded] = useIsLoaded();
 
   return isLoaded ? (
     <>
       <Navigation />
       <PageTileContainer>
-        <Introduction />
-        <AboutMe />
-        <Projects/>
+        {[
+          <Introduction />,
+          <AboutMe />,
+          ...Projects.map((projectData: any) => {
+            return <Project title={projectData.title} />;
+          }),
+        ]}
       </PageTileContainer>
     </>
   ) : null;

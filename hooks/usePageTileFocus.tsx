@@ -6,6 +6,7 @@ export const usePageTileFocus = (pageIndex: number) => {
   const [scrollPosition] = useOnScroll();
   const [resizeDimension] = useOnResize();
   const [focus, setFocus] = useState<number>(0);
+  const [windowFocus, setWindowFocus] = useState<number>(0);
 
   const calcFocussedPageFocus = (currentPageIndex: number) => {
     return currentPageIndex >= pageIndex && currentPageIndex <= pageIndex + 1
@@ -24,8 +25,9 @@ export const usePageTileFocus = (pageIndex: number) => {
     if (resizeDimension) {
       const currentPageIndex = scrollPosition / resizeDimension.height;
       setFocus(calcFocussedPageFocus(currentPageIndex));
+      setWindowFocus(currentPageIndex);
     }
   }, [scrollPosition, resizeDimension]);
 
-  return [focus];
+  return [focus, windowFocus];
 };

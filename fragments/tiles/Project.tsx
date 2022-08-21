@@ -5,7 +5,11 @@ import { useOnScroll } from "../../hooks/useOnScroll";
 import { opacity } from "../../styles/animations";
 import { Text } from "../../components/Text";
 
-const Projects = () => {
+export interface ProjectProps {
+  title: string;
+}
+
+const Project = ({title}: ProjectProps) => {
   return (
     <>
       <Container
@@ -15,10 +19,10 @@ const Projects = () => {
           backgroundColor: "teal",
         }}
       >
-        <Text textCenter>Projects</Text>
+        <Text textCenter>{title}</Text>
       </Container>
     </>
   );
 };
 
-export default Projects;
+export default Project;
