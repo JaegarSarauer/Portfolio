@@ -8,10 +8,11 @@ import { TransitionCSS } from "../../types/css";
 
 export interface ProjectProps {
   title: string;
+  content: string;
   transitionCSS?: TransitionCSS;
 }
 
-const Project = ({title, transitionCSS}: ProjectProps) => {
+const Project = ({ title, content, transitionCSS }: ProjectProps) => {
   return (
     <>
       <Container
@@ -19,9 +20,11 @@ const Project = ({title, transitionCSS}: ProjectProps) => {
         css={{
           width: "200px",
           backgroundColor: "teal",
+          width: "60vw",
         }}
       >
-        <Text textCenter>{title}</Text>
+        <Text>{title}</Text>
+        <Text>{content}</Text>
       </Container>
     </>
   );

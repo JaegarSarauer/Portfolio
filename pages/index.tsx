@@ -16,6 +16,9 @@ import Introduction from "../fragments/tiles/Introduction";
 import Project from "../fragments/tiles/Project";
 import ProjectPhotoFlow from "../fragments/tiles/ProjectPhotoFlow";
 import { Projects } from "../content/projects";
+import Education from "../fragments/tiles/Education";
+import Resume from "../fragments/tiles/Resume";
+import Contact from "../fragments/tiles/Contact";
 
 const Home: NextPage = () => {
   const [isLoaded] = useIsLoaded();
@@ -32,10 +35,14 @@ const Home: NextPage = () => {
             return (
               <Project
                 title={projectData.title}
+                content={projectData.content}
                 transitionCSS={projectData.transitionCSS}
               />
             );
           }),
+          <Education />,
+          <Resume />,
+          <Contact />,
         ]}
       </PageTileContainer>
     </>
