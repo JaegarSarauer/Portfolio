@@ -6,6 +6,10 @@ interface PageTileContainerProps {
   children: any; // TODO PageTile[]
 }
 
+const defaultTransitionCSS = (step: number) => ({
+  opacity: step,
+});
+
 export const PageTileContainer = ({ children }: PageTileContainerProps) => {
   return (
     <Container
@@ -17,6 +21,7 @@ export const PageTileContainer = ({ children }: PageTileContainerProps) => {
         <PageTile
           key={pageIndex}
           pageIndex={pageIndex}
+          transitionCSS={child?.props?.transitionCSS ?? defaultTransitionCSS}
         >
           {child}
         </PageTile>

@@ -4,12 +4,14 @@ import { useOnResize } from "../../hooks/useOnResize";
 import { useOnScroll } from "../../hooks/useOnScroll";
 import { opacity } from "../../styles/animations";
 import { Text } from "../../components/Text";
+import { TransitionCSS } from "../../types/css";
 
 export interface ProjectProps {
   title: string;
+  transitionCSS?: TransitionCSS;
 }
 
-const Project = ({title}: ProjectProps) => {
+const Project = ({title, transitionCSS}: ProjectProps) => {
   return (
     <>
       <Container

@@ -14,6 +14,7 @@ import { opacity } from "../styles/animations";
 import AboutMe from "../fragments/tiles/AboutMe";
 import Introduction from "../fragments/tiles/Introduction";
 import Project from "../fragments/tiles/Project";
+import ProjectPhotoFlow from "../fragments/tiles/ProjectPhotoFlow";
 import { Projects } from "../content/projects";
 
 const Home: NextPage = () => {
@@ -22,12 +23,18 @@ const Home: NextPage = () => {
   return isLoaded ? (
     <>
       <Navigation />
+      <ProjectPhotoFlow />
       <PageTileContainer>
         {[
           <Introduction />,
           <AboutMe />,
           ...Projects.map((projectData: any) => {
-            return <Project title={projectData.title} />;
+            return (
+              <Project
+                title={projectData.title}
+                transitionCSS={projectData.transitionCSS}
+              />
+            );
           }),
         ]}
       </PageTileContainer>
